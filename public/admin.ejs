@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- STYLE CSS -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg  nav-bg-blue fixed-top">
+      <div class="container-fluid">
+      
+        <button class="navbar-toggler navbar-dark"  type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon navbar-dark"></span>
+        </button>
+        <div class="nav collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+          <ul class="navbar-nav  mb-2 mb-lg-0 mx-2 navbarlist w-25 justify-content-evenly">
+            <li class="nav-item">
+              <a  class="nav-link main-font" id="home" href="/" >Help</a>
+            </li>
+           
+            <li class="nav-item" >
+              <a class="nav-link main-font" id="apply" href="/home.html">logout</a>
+            </li>
+            <li class="nav-item " >
+              <a class="nav-link main-font" id="status" href="/sign up page.html">Sign up</a>
+            </li>
+            
+          </div>
+        </div>
+  </nav>
+
+    <div class="container mt-5 bg-secondary">
+      <div class="row">
+        <div class="col"></div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <!-- <p>
+            <a
+              class="btn btn-primary"
+              data-bs-toggle="collapse"
+              href="#home"
+              role="button"
+              aria-expanded="false"
+              aria-controls="collapseExample"
+            >
+              Candidate registered List for approval
+            </a>
+          </p> -->
+          <div class="" id="home">
+            <div class="card card-body">
+              <table id="myTable" class="display table table-warning">
+                <thead>
+                  <tr>
+                    <th>#id</th>
+                    <th>Name</th>
+                    <th>email</th>
+                    <th>address</th>
+                    <!-- <th>Job ID</th> -->
+                    <th>status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% if(bdata.length!=0){ var i=1;
+                    bdata.forEach(function(data){ %>
+                  <tr>
+                    <td><%=i; %></td>
+                    <td><%=data.name %></td>
+                    <td><%=data.email %></td>
+                    <td><%=data.address %></td>
+                    <!-- <td><%=data.jobid %></td> -->
+                    <td>
+                      <% if(data.Status){%> selected<%}else{%>Rejected<%}%>%>
+                    </td>
+                    <td>
+                      <a href="/users/edit/<%=data.id%>/<%=data.Status%>"
+                        >Accept/Reject</a
+                      >
+                      <a
+                        href="/users/delete/<%=data.id%>"
+                        onclick="return confirm('Are you sure you want to delete this item?');"
+                        >Delete</a
+                      >
+                    </td>
+                  </tr>
+                  <% i++; }) %> <% } else{ %>
+                  <tr>
+                    <td colspan="7">No Data Found</td>
+                  </tr>
+                  <% } %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script
+      type="text/javascript"
+      charset="utf8"
+      src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#myTable").DataTable();
+      });
+    </script>
+  </body>
+</html>

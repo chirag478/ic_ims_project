@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-1.12.4.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#table_id").DataTable();
+      });
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+    <title>Document</title>
+  </head>
+  <nav class="navbar navbar-expand-lg  nav-bg-blue fixed-top">
+    <div class="container-fluid">
+    
+      <button class="navbar-toggler navbar-dark"  type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon navbar-dark"></span>
+      </button>
+      <div class="nav collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <ul class="navbar-nav  mb-2 mb-lg-0 mx-2 navbarlist w-25 justify-content-evenly">
+          <li class="nav-item">
+            <a  class="nav-link main-font" id="home" href="/" >Help</a>
+          </li>
+         
+          <li class="nav-item" >
+            <a class="nav-link main-font" id="apply" href="/application.html">home</a>
+          </li>
+          <li class="nav-item " >
+            <a class="nav-link main-font" id="status" href="/sign up page.html">Sign up</a>
+          </li>
+          
+        </div>
+      </div>
+</nav>
+      <div class="container mt-5">
+        <table id="table_id" class="display">
+          <thead>
+            <tr>
+                    <th>Name</th>
+                    <th>email</th>
+                    <th>address</th>
+                    <!-- <th>Job ID</th> -->
+                    <th>status</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% if(bdata.length){ bdata.forEach(function(data){ %>
+            <tr>
+                <td><%=data.name %></td>
+                    <td><%=data.email %></td>
+                    <td><%=data.address %></td>
+                    <!-- <td><%=data.jobid %></td> -->
+                    <td>
+                      <% if(data.Status){%> selected<%}else{%>Rejected<%}%>%>
+                    </td>
+            </tr>
+
+            <% }) } else{ %>
+            <h4>No data available</h4>
+            <%}%>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
